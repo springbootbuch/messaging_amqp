@@ -47,12 +47,12 @@
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.21.0</version>
+				<version>0.34.1</version>
 				<inherited>false</inherited>
 				<configuration>
 					<images>
 						<image>
-							<name>rabbitmq:3.6.10-management-alpine</name>
+							<name>rabbitmq:3.8-management-alpine</name>
 							<alias>rabbitmq</alias>
 							<run>
 								<ports>
@@ -60,7 +60,8 @@
 									<port>15672:15672</port>
 								</ports>
 								<wait>
-									<log>Server startup complete;</log>
+									<time>20000</time>
+									<log>.*Server startup complete;.*</log>
 								</wait>
 							</run>
 						</image>
